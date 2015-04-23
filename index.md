@@ -11,7 +11,7 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## The motivation {.build}
+## The motivation
 
 >- I don't know if you remember the lecture in this course a few lessons ago that used an example data-set pulled down from Quandl?
 >- I saw it and thought, hey, that looks pretty cool, wonder when I can find an excuse to play around with that?
