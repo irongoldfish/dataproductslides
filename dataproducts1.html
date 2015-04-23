@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coursera Data Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Coursera Data Products">
+  <meta name="author" content="stevenL">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Coursera Data Products</h1>
+    <h2></h2>
+    <p>stevenL<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The motivation {.build}</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li>I don&#39;t know if you remember the lecture in this course a few lessons ago that used an example data-set pulled down from Quandl?</li>
+<li>I saw it and thought, hey, that looks pretty cool, wonder when I can find an excuse to play around with that?</li>
+<li>Well, this is my excuse.</li>
+</ul>
+
+<h2>The Product</h2>
+
+<ul class = "build incremental">
+<li>Quandl is an API that lets you pull data sets into R like this </li>
+</ul>
+
+<pre><code class="r">    coolData&lt;-Quandl(datacode)
+</code></pre>
+
+<ul class = "build incremental">
+<li>They&#39;re mainly time series data, I&#39;m not sure why, but there&#39;s a nice coverage of topics. Lots of financial data, but also heath and social-demographics stuff.</li>
+<li>Maybe you had the same thought I did on seeing that code fragment: &quot;Cool, but how do I know what &#39;datacode&#39; to use?&quot;</li>
+<li>There&#39;s a Quandl website, but I didn&#39;t find it super search-friendly.</li>
+</ul>
+
+<h2>The Product</h2>
+
+<ul class = "build incremental">
+<li>A much better way to search is to use the Quandl search function:</li>
+</ul>
+
+<pre><code class="r">        searchresults&lt;-Quandl.search(searchtext)
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>This returns a list of &#39;results&#39;, where each result is a list with entries &quot;name&quot; &quot;code&quot; &quot;description&quot;  &quot;frequency&quot; and &quot;column_names&quot;</p></li>
+<li><p>The Shiny app I built for this project is just a GUI for this search function.</p></li>
+<li><p>It allows you to enter a search string, puts the &#39;name&#39; of each result into a dropdown menu, and on selecting the menu, displays the &#39;description&#39; and attempts to plot the data.</p></li>
+</ul>
+
+<h2>Known issues</h2>
+
+<ul class = "build incremental">
+<li>It&#39;s not really very practical, but I had hours of fun typing in random words and looking at the line plots associated with them.</li>
+<li>I&#39;m pretty easily amused.</li>
+<li>There are some rough edges still.</li>
+<li>It doesn&#39;t degrade gracefully with a bunch of common error conditions.</li>
+<li>But the flaw that really bothers me is the way the plots assume the date/time info is in the first variable, and only plot one other variable. Many of the Quandl datasets carry many variables.</li>
+</ul>
+
+<h2>Thanks for your time</h2>
+
+<p>Anyway, cheers for looking this over. I&#39;ll look forward to your comments!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The motivation {.build}'>
+         1
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

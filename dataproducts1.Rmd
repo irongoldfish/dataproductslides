@@ -1,0 +1,52 @@
+---
+title: "Coursera Data Products"
+author: "stevenL"
+date: "20/04/2015"
+output: ioslides_presentation
+css: style2samediff.css
+---
+
+## The motivation {.build}
+
+>- I don't know if you remember the lecture in this course a few lessons ago that used an example data-set pulled down from Quandl?
+>- I saw it and thought, hey, that looks pretty cool, wonder when I can find an excuse to play around with that?
+>- Well, this is my excuse.
+
+
+## The Product
+
+>- Quandl is an API that lets you pull data sets into R like this 
+
+```{r, eval=FALSE}
+    coolData<-Quandl(datacode)
+```
+
+>- They're mainly time series data, I'm not sure why, but there's a nice coverage of topics. Lots of financial data, but also heath and social-demographics stuff.
+>- Maybe you had the same thought I did on seeing that code fragment: "Cool, but how do I know what 'datacode' to use?"
+>- There's a Quandl website, but I didn't find it super search-friendly.
+
+## The Product
+
+>- A much better way to search is to use the Quandl search function:
+
+```{r, eval=FALSE}
+        searchresults<-Quandl.search(searchtext)
+```
+
+>- This returns a list of 'results', where each result is a list with entries "name" "code" "description"  "frequency" and "column_names"
+
+>- The Shiny app I built for this project is just a GUI for this search function.
+
+>- It allows you to enter a search string, puts the 'name' of each result into a dropdown menu, and on selecting the menu, displays the 'description' and attempts to plot the data.
+
+## Known issues
+
+>- It's not really very practical, but I had hours of fun typing in random words and looking at the line plots associated with them.
+>- I'm pretty easily amused.
+>- There are some rough edges still.
+>- It doesn't degrade gracefully with a bunch of common error conditions.
+>- But the flaw that really bothers me is the way the plots assume the date/time info is in the first variable, and only plot one other variable. Many of the Quandl datasets carry many variables.
+
+## Thanks for your time
+
+Anyway, cheers for looking this over. I'll look forward to your comments!
